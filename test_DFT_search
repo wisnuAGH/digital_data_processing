@@ -1,0 +1,16 @@
+fs = 32  # Sampling frequency
+dt = 1/fs # Sampling interval
+t_s = 0   # Start of sampling 
+t_e = 1   # End of sampling 
+
+# Generate timestamps of samples
+t = np.arange(t_s, t_e, dt)
+
+# Generate white noise signal as an test signal
+x = np.random.randn(*t.shape)
+# WYNIKI 
+
+print("wartość obliczona:    ", DFT_search(x) )
+
+X = np.fft.fft(x)
+print("wartość referencyjna: ", abs(X[4])/fs)
